@@ -14,14 +14,15 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     font-family:"Barlow Semi Condensed", sans-serif;
+    padding: 42px;
 
 }
 header {
     border: solid 2px var(--color-border);
     border-radius: 6px;
     display: flex;
-    max-width:800px;
-    margin: 24px auto;
+    max-width:700px;
+    margin: 0 auto;
     justify-content: space-between;
     padding: 12px 24px;
     align-items: center;
@@ -47,4 +48,19 @@ h1 span {
     color: var(--color-points);
     font-size: 50px;
     line-height: 43px;
+}
+main {
+    max-width:600px;
+    margin: 0 auto;
+}
+.options {
+    aspect-ratio: 313 / 278;
+    background-image: url(/images/bg-triangle.svg);
+    width: 50%;
+    background-size: cover;
+    margin: 0 auto;
+    position: relative;
+}
+.options button{
+    position: absolute;
 }
