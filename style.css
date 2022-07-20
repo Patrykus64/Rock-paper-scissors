@@ -64,3 +64,19 @@ main {
 .options button{
     position: absolute;
 }
+.button--paper {
+    left: 0;
+    top:0;
+    transform: translate(-50%, -50%); /* Nie do końca rozumiem tego transforma */
+}
+.button--scissors{
+    right:0;
+    top:0;
+    transform: translate(50%, -50%);
+
+}
+.button--rock{
+    bottom:0;
+    left:50%;
+    transform: translate(-50%, 50%);
+}
