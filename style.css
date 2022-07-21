@@ -144,12 +144,19 @@ width: 50%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: flex-start; /* Flex domyślnie ustawia elementy na strech czyli je rozciąga jak może trzeba zmienić na któryś z innych aby się nie zrobiła elipsa*/
 }
 .pick_title {
     display: block;
     width: 100%;
     text-align: center;
-    padding-bottom: 24px;
+    padding-bottom: 32px;
     font-size: 1.5rem;
 
+}
+.pick_placeholder {
+    background:rgba(0,0,0, 0.15) ;
+    aspect-ratio: 1/1;
+        width: 60%;
+    border-radius: 50%;
 }
