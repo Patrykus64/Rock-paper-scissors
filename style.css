@@ -68,7 +68,7 @@ main {
 .options .button{
   
     position: absolute;
-       
+       width: 50%;
     border: none;
    
 }
@@ -79,12 +79,15 @@ main {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    width: 50%; 
+    border:none;
+    box-shadow: inset 0px -8px 1px rgba(0,0,0,0.25);
+    
     
 
 }
 .button img{
 width: 50%;
+
 }
 .button_image {
     width: 80%;
@@ -94,23 +97,59 @@ width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: inset 0px 8px 2px rgba(0,0,0,0.2);/* Odpowiada za nadanie cieni na buttonach */
 }
 .button--paper {
+    background: linear-gradient(var(--color-paper));
+    
+}
+.button--scissors{
+   background: linear-gradient(var(--color-scissors));
+  
+
+}
+.button--rock{
+    background: linear-gradient(var(--color-rock));
+   
+}
+.options .button--paper {
     background: linear-gradient(var(--color-paper));
     left: 0;
     top:0;
     transform: translate(-50%, -50%); /* Nie do końca rozumiem tego transforma */
+    
 }
-.button--scissors{
+.options .button--scissors{
    background: linear-gradient(var(--color-scissors));
     right:0;
     top:0;
     transform: translate(50%, -50%);
 
 }
-.button--rock{
+.options .button--rock{
     background: linear-gradient(var(--color-rock));
     bottom:0;
     left:50%;
     transform: translate(-50%, 50%);
+}
+.fight {
+    color: var(--color-main);
+    display: flex;
+}
+.fight .button {
+    width: 50%;
+}
+.pick {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pick_title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 24px;
+    font-size: 1.5rem;
+
 }
