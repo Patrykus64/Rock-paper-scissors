@@ -18,15 +18,19 @@ const renderScore = () => {
 };
 const bindPickEvents = () => {
     document.querySelectorAll(".options button").forEach((button)=> { //ForEach to dla każdego elementu jest wywołana funkcja
-        button.addEventListener("click", (a)=>{
+        button.addEventListener("click", pick)
 
-            pickByPlayer(a.currentTarget.dataset.pick);
-            pickByAI();
-            console.log(state);
+            
+            //console.log(state); To pokazuje co klikneliśmy i całe state
                 //console.log(a.target) // to pokazuje nam jaki przycisk klikneliśmy 
         });     
 
-    });
+};
+const pick = (a) => {
+    pickByPlayer(a.currentTarget.dataset.pick);
+    pickByAI();
+    hideOptions();
+    showFight();
 
 };
 const pickByPlayer = (pickedOption) =>{
@@ -41,12 +45,57 @@ const pickByAI = () => {
     const AIPick = options[Math.floor(Math.random() * options.length)];//math.random wybiera liczbe od 0 do 1
     //pomnożone przez optionslength da liczbe od 0 do 3
     //Mathfloor zaokrągla
-    stata = {
+    state = {
         ...state,
         AIPick //destructering czy coś takiego:D
     };
 };
+const hideOptions = () =>{
+    document.querySelector(".options").classList.add("hidden");
+};// To nada pierwszemu z klasy options klase hidden przez  co zniknie
 
+const showFight = () =>{
+ document.querySelector(".fight").classList.remove("hidden");//To usunie tą klase 
+createElementPickByPlayer();
+createElementPickByAI();
+
+};
+const createElementPickByPlayer = () =>{
+    const playerPick = state.playerPick;
+    
+
+    const pickContainerElement = document.querySelector(".pick__container--player");
+    pickContainerElement.innerHTML = "";
+    pickContainerElement.appendChild(createPickElement(playerPick));
+   
+};
+const createElementPickByAI = () => {
+    const AIPick = state.AIPick;
+    
+
+    const pickContainerElement = document.querySelector(".pick__container--ai");
+    pickContainerElement.innerHTML = "";
+    pickContainerElement.appendChild(createPickElement(AIPick));//appendchild tworzy element w rodzicu i wstawia go na koniec
+   
+};
+const createPickElement = (option) =>{
+    const buttEle = document.createElement("div");
+    buttEle.classList.add("button", `button--${option}`);
+
+    const divImageContainer = document.createElement("div");
+    divImageContainer.classList.add("button_image");
+
+    const imgElement = document.createElement("img");
+    imgElement.src = `./images/icon-${option}.svg`;
+    imgElement.alt = option;
+
+    ////To zrozumieć co poniżej
+    divImageContainer.appendChild(imgElement);
+
+    buttEle.appendChild(divImageContainer);
+    return buttEle;
+
+};
 
 const init = () => {
     renderScore();
