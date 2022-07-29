@@ -41,6 +41,7 @@ h1 span {
     background: var(--color-main);
     border-radius: 5px;
     padding:12px 42px ;
+    text-align: center;
 }
 .score span {
     color:var(--color-score);
@@ -51,6 +52,7 @@ h1 span {
     color: var(--color-points);
     font-size: 50px;
     line-height: 43px;
+    
 }
 main {
     max-width:800px;
