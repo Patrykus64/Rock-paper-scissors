@@ -4,9 +4,15 @@
 // ai pick
 const playerWinsLSKey = "playerWins";
 const AIWinsLSKey = "AIWins"; // Nazwa klucza który będziemy wykorzystywać zapisując czy odczytując playerwins
+const winingResultMap ={
+    paper: ["rock"],
+    rock:["scissors"],
+    scissors:["paper"]
+};
+
 let state = {
-    playerWins:localStorage.getItem(playerWinsLSKey)|| 0, //Na początku daliśmy tu zero ale teraz zmieniamy na localStorage aby odczytywać czy mamy w pamięci jakieś punkty już zrobione
-    AIWins: localStorage.getItem(AIWinsLSKey) || 0, //Kreski po localStorage mówią, że jezeli mamy jakąs wartośc zapisaną to ja tam wrzćmy jak nie to przypisz 0
+    playerWins: Number(localStorage.getItem(playerWinsLSKey))|| 0, //Na początku daliśmy tu zero ale teraz zmieniamy na localStorage aby odczytywać czy mamy w pamięci jakieś punkty już zrobione
+    AIWins: Number(localStorage.getItem(AIWinsLSKey)) || 0, //Kreski po localStorage mówią, że jezeli mamy jakąs wartośc zapisaną to ja tam wrzćmy jak nie to przypisz 0
     playerPick: null,
     AIPick: null
 };
@@ -58,7 +64,29 @@ const showFight = () =>{
  document.querySelector(".fight").classList.remove("hidden");//To usunie tą klase 
 createElementPickByPlayer();
 createElementPickByAI();
+showResult();
 
+};
+const showResult = () => {
+    if (state.AIPick === state.playerPick) {
+      //  console.log("remis");
+    }
+   else if (winingResultMap[state.playerPick].includes(state.AIPick)) { //Includes sprawdza czy dana tablica zawiera coś w tym przypadku AIPick
+    localStorage.setItem(playerWinsLSKey, state.playerWins + 1);
+       // console.log('wygrana Pla');
+       state = {
+        ...state,
+        playerWins: state.playerWins +1,
+       };
+    } else {
+        localStorage.setItem(playerWinsLSKey, state.AIWins + 1);
+        //console.log ('wygrana Ai');
+        state = {
+            ...state,
+            AIWins: state.AIWins +1,
+           };//2:21:19 filmik
+    }
+    renderScore();
 };
 const createElementPickByPlayer = () =>{
     const playerPick = state.playerPick;
