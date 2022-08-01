@@ -74,9 +74,10 @@ showResult();
 };
 const showResult = () => {
     if (state.AIPick === state.playerPick) {
-      //  console.log("remis");
+        document.querySelector(".result_text").innerText = "REMIS";
     }
    else if (winingResultMap[state.playerPick].includes(state.AIPick)) { //Includes sprawdza czy dana tablica zawiera coś w tym przypadku AIPick
+    document.querySelector(".result_text").innerText = "WYGRAŁEŚ";//Drukowanie wygranej
     localStorage.setItem(playerWinsLSKey, state.playerWins + 1);
        // console.log('wygrana Pla');
        state = {
@@ -84,6 +85,7 @@ const showResult = () => {
         playerWins: state.playerWins +1,
        };
     } else {
+        document.querySelector(".result_text").innerText = "PRZEGRAŁEŚ";
         localStorage.setItem(playerWinsLSKey, state.AIWins + 1);
         //console.log ('wygrana Ai');
         state = {
@@ -91,7 +93,13 @@ const showResult = () => {
             AIWins: state.AIWins +1,
            };//2:21:19 filmik
     }
+    setTimeout(renderResult,600);
     renderScore();
+};
+const renderResult =() => {
+    document.querySelector(".result").classList.add("shown");
+    document.querySelector(".pick-player").classList.add("moved");
+    document.querySelector(".pick-ai").classList.add("moved");
 };
 const createElementPickByPlayer = () =>{
     const playerPick = state.playerPick;
