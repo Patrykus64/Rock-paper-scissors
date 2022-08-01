@@ -18,6 +18,7 @@ body {
     min-height: 100vh;
     font-family:"Barlow Semi Condensed", sans-serif;
     padding: 42px;
+    overflow: hidden;
 
 }
 header {
@@ -56,8 +57,17 @@ h1 span {
 }
 main {
     max-width:800px;
+    min-height: 70vh;
     margin: 0 auto;
     padding: 160px 0;
+    position: relative;
+}
+section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    transition: transform 0.3s, opacity 0.3s;
 }
 .options {
     aspect-ratio: 313 / 278;
@@ -65,8 +75,15 @@ main {
     width: 50%;
     background-size: cover;
     margin: 0 auto;
-    position: relative;
+    /*position: relative;*/
+    
+    
 }
+.options.slide-left{
+    opacity: 0%;
+    transform: translate(-200%, -50%);
+}
+
 .options .button{
   
     position: absolute;
@@ -137,6 +154,15 @@ width: 50%;
 .fight {
     color: var(--color-main);
     display: flex;
+    opacity: 0;
+    transform: translate(200%, 50%);
+    width: 100%;
+    
+}
+.fight.slide-left {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    
 }
 .pick__container--player,
 .pick__container--ai {

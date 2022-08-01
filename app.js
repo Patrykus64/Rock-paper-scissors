@@ -57,10 +57,15 @@ const pickByAI = () => {
     };
 };
 const hideOptions = () =>{
-    document.querySelector(".options").classList.add("hidden");
+    document.querySelector(".options").classList.add("slide-left");
+    setTimeout(()=>{
+        document.querySelector(".options").classList.add("hidden");
+    }, 300)   
+       
 };// To nada pierwszemu z klasy options klase hidden przez  co zniknie
 
 const showFight = () =>{
+ document.querySelector(".fight").classList.add("slide-left");
  document.querySelector(".fight").classList.remove("hidden");//To usunie tą klase 
 createElementPickByPlayer();
 createElementPickByAI();
