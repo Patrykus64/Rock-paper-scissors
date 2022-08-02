@@ -142,6 +142,9 @@ const reset = () => {
     document.querySelector(".fight").classList.remove("slide-left");
     document.querySelector(".options").classList.remove("slide-left");
     document.querySelector(".options").classList.remove("hidden");
+    document.querySelector(".result").classList.remove("shown");
+    document.querySelector(".pick-player").classList.remove("moved");
+    document.querySelector(".pick-ai").classList.remove("moved");
 };
 const init = () => {
     renderScore();
