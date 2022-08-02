@@ -196,7 +196,7 @@ width: 50%;
     width: 100%;
     text-align: center;
        padding-bottom: 32px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   
 }
 .pick_placeholder {
@@ -231,8 +231,35 @@ width: 50%;
 .result_button {
     background: color(--color-main);
     border: none;
-   
+   font-weight: 700;
+   font-size: 18px;
+   font-family:"Barlow Semi Condensed", sans-serif;
     color:hsl(349, 71%, 52%);
     border-radius: 5px;
     padding: 10px 32px;
+}
+
+@media screen and (max-width:480px) {
+    .score{
+        padding:8px 7px ;
+    }
+    .fight{
+        flex-wrap: wrap;
+    }
+    .pick,
+    .pick.moved,
+    .result    {
+        position: relative;
+        left: 0;
+        right: 0;
+        transform: translate(0,0);
+    }
+        .result {
+        width: 100%;
+        margin-top: 32px;
+        transform: translate(0,0) scaleX(0);
+    }
+    .result.shown {
+        transform: translate(0,0) scaleX(1);
+    }
 }

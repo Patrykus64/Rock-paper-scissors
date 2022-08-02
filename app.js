@@ -29,7 +29,8 @@ const bindPickEvents = () => {
             
             //console.log(state); To pokazuje co klikneliśmy i całe state
                 //console.log(a.target) // to pokazuje nam jaki przycisk klikneliśmy 
-        });     
+        });   
+        document.querySelector(".result_button").addEventListener("click", reset);  
 
 };
 const pick = (a) => {
@@ -137,10 +138,16 @@ const createPickElement = (option) =>{
     return buttEle;
 
 };
-
+const reset = () => {
+    document.querySelector(".fight").classList.remove("slide-left");
+    document.querySelector(".options").classList.remove("slide-left");
+    document.querySelector(".options").classList.remove("hidden");
+};
 const init = () => {
     renderScore();
     bindPickEvents();
 };
 
 init(); // Funkcja odpala się w momencie startu programu
+
+//Ewentualnie trzeba dodać tabindex -1 żeby nie pokazywało się to poprostu 
